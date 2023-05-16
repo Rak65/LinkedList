@@ -1,0 +1,8 @@
+H:\C# Project\LinkedListDS\LinkedListDS\bin\Debug\LinkedListDS.exe.config
+H:\C# Project\LinkedListDS\LinkedListDS\bin\Debug\LinkedListDS.exe
+H:\C# Project\LinkedListDS\LinkedListDS\bin\Debug\LinkedListDS.pdb
+H:\C# Project\LinkedListDS\LinkedListDS\obj\Debug\LinkedListDS.csproj.AssemblyReference.cache
+H:\C# Project\LinkedListDS\LinkedListDS\obj\Debug\LinkedListDS.csproj.SuggestedBindingRedirects.cache
+H:\C# Project\LinkedListDS\LinkedListDS\obj\Debug\LinkedListDS.csproj.CoreCompileInputs.cache
+H:\C# Project\LinkedListDS\LinkedListDS\obj\Debug\LinkedListDS.exe
+H:\C# Project\LinkedListDS\LinkedListDS\obj\Debug\LinkedListDS.pdb
