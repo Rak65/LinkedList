@@ -38,10 +38,10 @@ namespace LinkedListDS
                 while (current != null)
                 {
                     // Traverse the list and print the data of each node
-                    Console.Write(current.Data + " ");
+                    Console.Write(current.Data + "-> ");
                     current = current.Next;
                 }
-                Console.WriteLine();
+                Console.WriteLine("null");
             }
         
 
