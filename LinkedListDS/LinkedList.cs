@@ -8,17 +8,42 @@ namespace LinkedListDS
 {
     public class LinkedList
     {
-        public static void Add()
-        {
-            LinkedList<int> linked = new LinkedList<int>();
-            linked.AddFirst(56);
-            linked.AddLast(30);
-            linked.AddLast(70);
+        private Node head;  // Reference to the first node in the list
 
-            foreach (var input in linked)
+        public void Add(int data)
+        {
+            Node newNode = new Node(data);  // Create a new node with the given data
+
+            if (head == null)
             {
-                Console.WriteLine(input);
+                // If the list is empty, make the new node the head
+                head = newNode;
+            }
+            else
+            {
+                Node current = head;
+                while (current.Next != null)
+                {
+                    // Traverse to the end of the list
+                    current = current.Next;
+                }
+                // Add the new node at the end of the list
+                current.Next = newNode;
             }
         }
+
+            public void Display()
+            {
+                Node current = head;
+                while (current != null)
+                {
+                    // Traverse the list and print the data of each node
+                    Console.Write(current.Data + " ");
+                    current = current.Next;
+                }
+                Console.WriteLine();
+            }
+        
+
     }
 }
