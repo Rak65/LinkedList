@@ -10,7 +10,7 @@ namespace LinkedListDS
     {
         private Node head;  // Reference to the first node in the list
 
-        public void Add(int data)
+        public void Append(int data)
         {
             Node newNode = new Node(data);  // Create a new node with the given data
 
