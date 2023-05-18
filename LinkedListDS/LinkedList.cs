@@ -31,20 +31,37 @@ namespace LinkedListDS
             }
         }
 
-        public Node Search(int key)
+        public void Insert(int data, int afterValue)
         {
-            Node current = head;
-            while (current != null)
+            Node newNode = new Node(data);  // Create a new node with the given data
+
+            if (head == null)
             {
-                if (current.Data == key)
-                {
-                    // Found the node with the key
-                    return current;
-                }
-                current = current.Next;
+                // If the list is empty, make the new node the head
+                head = newNode;
             }
-            // Node with the key not found
-            return null;
+            else
+            {
+                Node current = head;
+                while (current != null)
+                {
+                    // Traverse the list to find the node with the specified value
+                    if (current.Data == afterValue)
+                    {
+                        // Insert the new node after the found node
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+
+                if (current == null)
+                {
+                    // The specified value was not found in the list
+                    Console.WriteLine("Node with value {0} not found.", afterValue);
+                }
+            }
         }
 
         public void Display()

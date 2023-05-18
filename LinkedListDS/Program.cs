@@ -15,11 +15,8 @@ namespace LinkedListDS
             linkedList.Add(30);
             linkedList.Add(70);
             linkedList.Display(); ;
-            //linkedList.Search(30);
-            if (linkedList.Search (30) != null)
-                Console.WriteLine("Node with value {0} found.", 30);
-            else
-                Console.WriteLine("Node with value {0} not found.", 30);
+            linkedList.Insert(40,30);
+            linkedList .Display();
             Console .ReadKey();
 
         }
