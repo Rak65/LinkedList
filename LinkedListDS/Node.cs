@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LinkedListDS
 {
-    public class Node
+    class Node<T> where T : IComparable<T>
     {
-        public int Data;  // Data stored in the node
-        public Node Next;  // Reference to the next node in the list
+        public T Data;  // Data stored in the node
+        public Node<T> Next;  // Reference to the next node in the list
 
-        public Node(int data)
+        public Node(T data)
         {
             Data = data;
             Next = null;

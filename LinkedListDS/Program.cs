@@ -10,32 +10,14 @@ namespace LinkedListDS
     {
         static void Main(string[] args)
         {
-            LinkedList linkedList = new LinkedList();
-            linkedList.Add(56);
-            linkedList.Add(30);
-            linkedList.Add(40);
-            linkedList.Add(70);
-            linkedList.Display();
+            SortedLinkedList<int> sortedList = new SortedLinkedList<int>();
 
-            int searchKey = 40;
-            Node result = linkedList.Search(searchKey);
-
-            if (result != null)
-            {
-                Console.WriteLine("Node with value {0} found.", searchKey);
-            }
-            else
-            {
-                Console.WriteLine("Node with value {0} not found.", searchKey);
-            }
-
-            linkedList.Delete(searchKey);
-            linkedList.Display();
-
-            Console.WriteLine("Linked List size: {0}", linkedList.Size());
-            linkedList .Display();
-            Console .ReadKey();
-
+            sortedList.Add(56);
+            sortedList.Add(30);
+            sortedList.Add(40);
+            sortedList.Add(70);
+            sortedList.Display();
+            Console .ReadKey ();
         }
     }
 }

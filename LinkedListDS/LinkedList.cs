@@ -3,105 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LinkedListDS
 {
-    public class LinkedList
+    class SortedLinkedList<T> where T : IComparable<T>
     {
-        private Node head;  // Reference to the first node in the list
-        public void Add(int data)
-        {
-            Node newNode = new Node(data);  // Create a new node with the given data
+        private Node<T> head;  // Reference to the first node in the list
 
-            if (head == null)
+        public void Add(T data)
+        {
+            Node<T> newNode = new Node<T>(data);  // Create a new node with the given data
+
+            if (head == null || data.CompareTo(head.Data) < 0)
             {
-                // If the list is empty, make the new node the head
+                // If the list is empty or the data is smaller than the head node data,
+                // make the new node the new head
+                newNode.Next = head;
                 head = newNode;
             }
             else
             {
-                Node current = head;
-                while (current.Next != null)
+                Node<T> current = head;
+                while (current.Next != null && data.CompareTo(current.Next.Data) > 0)
                 {
-                    // Traverse to the end of the list
                     current = current.Next;
                 }
-                // Add the new node at the end of the list
+                // Insert the new node at the appropriate position in the list
+                newNode.Next = current.Next;
                 current.Next = newNode;
             }
         }
 
-        public Node Search(int key)
-        {
-            Node current = head;
-            while (current != null)
-            {
-                if (current.Data == key)
-                {
-                    // Found the node with the key
-                    return current;
-                }
-                current = current.Next;
-            }
-            // Node with the key not found
-            return null;
-        }
-
-        public void Delete(int key)
-        {
-            if (head == null)
-            {
-                Console.WriteLine("List is empty. Cannot perform delete operation.");
-                return;
-            }
-
-            if (head.Data == key)
-            {
-                // If the head node has the key value, delete the head node
-                head = head.Next;
-                return;
-            }
-
-            Node current = head;
-            while (current.Next != null && current.Next.Data != key)
-            {
-                current = current.Next;
-            }
-
-            if (current.Next != null)
-            {
-                // If the node with the key value is found, delete it
-                current.Next = current.Next.Next;
-            }
-            else
-            {
-                Console.WriteLine("Node with value {0} not found.", key);
-            }
-        }
-
-        public int Size()
-        {
-            int count = 0;
-            Node current = head;
-            while (current != null)
-            {
-                count++;
-                current = current.Next;
-            }
-            return count;
-        }
-
         public void Display()
+        {
+            Node<T> current = head;
+            while (current != null)
             {
-                Node current = head;
-                while (current != null)
-                {
-                    // Traverse the list and print the data of each node
-                    Console.Write(current.Data + " ");
-                    current = current.Next;
-                }
-                Console.WriteLine();
+                // Traverse the list and print the data of each node
+                Console.Write(current.Data + " ");
+                current = current.Next;
             }
+            Console.WriteLine();
+
+        }
         
 
     }
