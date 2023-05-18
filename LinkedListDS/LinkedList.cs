@@ -31,37 +31,64 @@ namespace LinkedListDS
             }
         }
 
-        public void Insert(int data, int afterValue)
+        public Node Search(int key)
         {
-            Node newNode = new Node(data);  // Create a new node with the given data
+            Node current = head;
+            while (current != null)
+            {
+                if (current.Data == key)
+                {
+                    // Found the node with the key
+                    return current;
+                }
+                current = current.Next;
+            }
+            // Node with the key not found
+            return null;
+        }
 
+        public void Delete(int key)
+        {
             if (head == null)
             {
-                // If the list is empty, make the new node the head
-                head = newNode;
+                Console.WriteLine("List is empty. Cannot perform delete operation.");
+                return;
+            }
+
+            if (head.Data == key)
+            {
+                // If the head node has the key value, delete the head node
+                head = head.Next;
+                return;
+            }
+
+            Node current = head;
+            while (current.Next != null && current.Next.Data != key)
+            {
+                current = current.Next;
+            }
+
+            if (current.Next != null)
+            {
+                // If the node with the key value is found, delete it
+                current.Next = current.Next.Next;
             }
             else
             {
-                Node current = head;
-                while (current != null)
-                {
-                    // Traverse the list to find the node with the specified value
-                    if (current.Data == afterValue)
-                    {
-                        // Insert the new node after the found node
-                        newNode.Next = current.Next;
-                        current.Next = newNode;
-                        break;
-                    }
-                    current = current.Next;
-                }
-
-                if (current == null)
-                {
-                    // The specified value was not found in the list
-                    Console.WriteLine("Node with value {0} not found.", afterValue);
-                }
+                Console.WriteLine("Node with value {0} not found.", key);
             }
+        }
+
+        public int Size()
+        {
+            int count = 0;
+            Node current = head;
+            while (current != null)
+            {
+                count++;
+                current = current.Next;
+            }
+            return count;
         }
 
         public void Display()
