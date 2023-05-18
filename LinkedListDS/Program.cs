@@ -17,7 +17,7 @@ namespace LinkedListDS
 
             linkedList.Display(); ;
 
-            linkedList.Pop();  // Delete the first element
+            linkedList.PopLast();  // Delete the Last element
             linkedList.Display();
             Console .ReadKey();
 

@@ -31,16 +31,26 @@ namespace LinkedListDS
             }
         }
 
-        public void Pop()
+        public void PopLast()
         {
-            if (head != null)
+            if (head == null)
             {
-                // If the list is not empty
-                head = head.Next;  // Update the head to the next node
+                Console.WriteLine("List is empty. Cannot perform popLast operation.");
+            }
+            else if (head.Next == null)
+            {
+                // If there is only one node in the list
+                head = null;  // Make the list empty
             }
             else
             {
-                Console.WriteLine("List is empty. Cannot perform pop operation.");
+                Node current = head;
+                while (current.Next.Next != null)
+                {
+                    current = current.Next;
+                }
+                // Remove the last node from the list
+                current.Next = null;
             }
         }
 
@@ -50,10 +60,10 @@ namespace LinkedListDS
                 while (current != null)
                 {
                     // Traverse the list and print the data of each node
-                    Console.Write(current.Data + "-> ");
+                    Console.Write(current.Data + " ");
                     current = current.Next;
                 }
-                Console.WriteLine("null");
+                Console.WriteLine();
             }
         
 
