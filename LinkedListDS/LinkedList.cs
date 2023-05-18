@@ -31,40 +31,20 @@ namespace LinkedListDS
             }
         }
 
-        public void Insert(int data, int afterValue)
+        public void Pop()
         {
-            Node newNode = new Node(data);  // Create a new node with the given data
-
-            if (head == null)
+            if (head != null)
             {
-                // If the list is empty, make the new node the head
-                head = newNode;
+                // If the list is not empty
+                head = head.Next;  // Update the head to the next node
             }
             else
             {
-                Node current = head;
-                while (current != null)
-                {
-                    // Traverse the list to find the node with the specified value
-                    if (current.Data == afterValue)
-                    {
-                        // Insert the new node after the found node
-                        newNode.Next = current.Next;
-                        current.Next = newNode;
-                        break;
-                    }
-                    current = current.Next;
-                }
-
-                if (current == null)
-                {
-                    // The specified value was not found in the list
-                    Console.WriteLine("Node with value {0} not found.", afterValue);
-                }
+                Console.WriteLine("List is empty. Cannot perform pop operation.");
             }
         }
 
-            public void Display()
+        public void Display()
             {
                 Node current = head;
                 while (current != null)

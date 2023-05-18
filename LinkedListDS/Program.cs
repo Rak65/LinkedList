@@ -12,8 +12,12 @@ namespace LinkedListDS
         {
             LinkedList linkedList = new LinkedList();
             linkedList.Add(56);
-            linkedList.Insert(30, 56);  // Insert 30 after the node with value 56
-            linkedList.Insert(70, 30);  // Insert 70 after the node with value 30
+            linkedList.Add(30);
+            linkedList.Add(70);
+
+            linkedList.Display(); ;
+
+            linkedList.Pop();  // Delete the first element
             linkedList.Display();
             Console .ReadKey();
 
