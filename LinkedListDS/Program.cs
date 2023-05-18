@@ -14,11 +14,12 @@ namespace LinkedListDS
             linkedList.Add(56);
             linkedList.Add(30);
             linkedList.Add(70);
-
             linkedList.Display(); ;
-
-            linkedList.PopLast();  // Delete the Last element
-            linkedList.Display();
+            //linkedList.Search(30);
+            if (linkedList.Search (30) != null)
+                Console.WriteLine("Node with value {0} found.", 30);
+            else
+                Console.WriteLine("Node with value {0} not found.", 30);
             Console .ReadKey();
 
         }

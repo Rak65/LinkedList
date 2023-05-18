@@ -31,27 +31,20 @@ namespace LinkedListDS
             }
         }
 
-        public void PopLast()
+        public Node Search(int key)
         {
-            if (head == null)
+            Node current = head;
+            while (current != null)
             {
-                Console.WriteLine("List is empty. Cannot perform popLast operation.");
-            }
-            else if (head.Next == null)
-            {
-                // If there is only one node in the list
-                head = null;  // Make the list empty
-            }
-            else
-            {
-                Node current = head;
-                while (current.Next.Next != null)
+                if (current.Data == key)
                 {
-                    current = current.Next;
+                    // Found the node with the key
+                    return current;
                 }
-                // Remove the last node from the list
-                current.Next = null;
+                current = current.Next;
             }
+            // Node with the key not found
+            return null;
         }
 
         public void Display()
