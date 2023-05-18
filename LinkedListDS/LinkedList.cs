@@ -9,8 +9,7 @@ namespace LinkedListDS
     public class LinkedList
     {
         private Node head;  // Reference to the first node in the list
-
-        public void Append(int data)
+        public void Add(int data)
         {
             Node newNode = new Node(data);  // Create a new node with the given data
 
@@ -29,6 +28,39 @@ namespace LinkedListDS
                 }
                 // Add the new node at the end of the list
                 current.Next = newNode;
+            }
+        }
+
+        public void Insert(int data, int afterValue)
+        {
+            Node newNode = new Node(data);  // Create a new node with the given data
+
+            if (head == null)
+            {
+                // If the list is empty, make the new node the head
+                head = newNode;
+            }
+            else
+            {
+                Node current = head;
+                while (current != null)
+                {
+                    // Traverse the list to find the node with the specified value
+                    if (current.Data == afterValue)
+                    {
+                        // Insert the new node after the found node
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+
+                if (current == null)
+                {
+                    // The specified value was not found in the list
+                    Console.WriteLine("Node with value {0} not found.", afterValue);
+                }
             }
         }
 

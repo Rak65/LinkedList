@@ -11,9 +11,9 @@ namespace LinkedListDS
         static void Main(string[] args)
         {
             LinkedList linkedList = new LinkedList();
-            linkedList.Append(56);
-            linkedList.Append(30);
-            linkedList.Append(70);
+            linkedList.Add(56);
+            linkedList.Insert(30, 56);  // Insert 30 after the node with value 56
+            linkedList.Insert(70, 30);  // Insert 70 after the node with value 30
             linkedList.Display();
             Console .ReadKey();
 
